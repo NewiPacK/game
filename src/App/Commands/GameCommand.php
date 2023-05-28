@@ -65,13 +65,13 @@ class GameCommand extends Command
             return Command::FAILURE;
         }
 
-        $move1 = $moves['0'];
-        $move2 = $moves['1'];
-        $move3 = $moves['2'];
-        $move4 = $moves['3'];
-        $move5 = $moves['4'];
-        $move6 = $moves['5'];
-        $move7 = $moves['6'];
+        $move1 = isset($moves['0']) ? $moves['0'] : '';
+        $move2 = isset($moves['1']) ? $moves['1'] : '';
+        $move3 = isset($moves['2']) ? $moves['2'] : '';
+        $move4 = isset($moves['3']) ? $moves['3'] : '';
+        $move5 = isset($moves['4']) ? $moves['4'] : '';
+        $move6 = isset($moves['5']) ? $moves['5'] : '';
+        $move7 = isset($moves['6']) ? $moves['6'] : '';
 
         $winningMoves = [
             $move1 => [$move5, $move6, $move7],
@@ -102,7 +102,7 @@ class GameCommand extends Command
         if ($userMove == 'exit') {
             $output->writeln('Exit the game');
             return Command::SUCCESS;
-        } elseif ($userMove = 'help') {
+        } if ($userMove == 'help') {
             $rulesTable = new TableGenerator();
             $rules = new Rules();
 
