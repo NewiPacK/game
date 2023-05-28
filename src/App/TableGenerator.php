@@ -34,7 +34,7 @@ class TableGenerator
         foreach ($moves as $index => $move) {
             $row = [$move];
             foreach ($moves as $innerMove) {
-                $result = $rules->determineWinnersTable($move, $innerMove, $winningMoves);
+                $result = $rules->determineWinnerTable($move, $innerMove, $winningMoves);
                 $row[] = $result;
             }
             $table->addRow($row);

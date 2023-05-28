@@ -4,7 +4,7 @@ namespace Console\App;
 use Symfony\Component\Console\Command\Command;
 class Rules
 {
-    public function determineWinnersTable(string $userMove, string $computerMove, array $winningMoves): string
+    public function determineWinnerTable(string $userMove, string $computerMove, array $winningMoves): string
     {
         if (isset($winningMoves[$userMove]) && in_array($computerMove, $winningMoves[$userMove])) {
             return 'Win';
